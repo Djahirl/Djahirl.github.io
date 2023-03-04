@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Calculadora Simples</title>
-</head>
-<body>
-	<label for="num1">Digite a primeira nota:</label>
-	<input type="number" id="num1">
-	<label for="num2">Digite a segunda nota:</label>
-	<input type="number" id="num2">
-	<button onclick="calcular()">Calcular</button>
-	<p id="resultado"></p>
-	<script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculadora de notas da UNIVESP</title>
+  </head>
+  <body>
+    <h1>Calculadora de notas da UNIVESP</h1>
+    <form>
+      <label for="nota1">Nota 1 (40%):</label>
+      <input type="number" id="nota1" name="nota1" oninput="calcular()"><br><br>
+      
+      <label for="nota2">Nota 2 (60%):</label>
+      <input type="number" id="nota2" name="nota2" oninput="calcular()"><br><br>
+      
+      <label for="media">Média:</label>
+      <input type="text" id="media" name="media" readonly>
+    </form>
+    
+    <script>
+      function calcular() {
+        var nota1 = parseFloat(document.getElementById("nota1").value);
+        var nota2 = parseFloat(document.getElementById("nota2").value);
+        if (!isNaN(nota1) && !isNaN(nota2)) {
+          var media = (nota1 * 0.4) + (nota2 * 0.6);
+          document.getElementById("media").value = media.toFixed(2);
+        } else {
+          document.getElementById("media").value = "";
+        }
+      }
+    </script>
+  </body>
 </html>
+
+<!-- Agradecimento especial ao ChatGPT por fornecer ajuda em meu projeto HTML! -->
